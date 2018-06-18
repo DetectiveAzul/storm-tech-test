@@ -27,7 +27,16 @@ namespace Storm.InterviewTest.Hearthstone.Tests.Base
 			return minion;
 		}
 
-		protected ICard CreateRandomSpellCardWithId(string id)
+        //Added a method to create a random hero card to use on other tests
+        
+        protected ICard CreateHeroCardWithId(string id, Action<HeroCard> heroAction)
+        {
+            var hero = Builder<HeroCard>.CreateNew().WithConstructor(() => new HeroCard(id)).Build();
+            heroAction.Invoke(hero);
+            return hero;
+        } 
+
+        protected ICard CreateRandomSpellCardWithId(string id)
 		{
 			return Builder<SpellCard>.CreateNew().WithConstructor(() => new SpellCard(id)).Build();
 		}
