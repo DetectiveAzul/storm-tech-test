@@ -187,3 +187,4 @@ Storm.InterviewTest.Hearthstone/App_Data/*
 *.ide-shm
 *.ide-wal
 .vs/Storm.InterviewTest.Hearthstone/v15/Server/sqlite3/storage.ide-shm
+.vs/Storm.InterviewTest.Hearthstone/v15/Server/sqlite3/storage.ide-wal
