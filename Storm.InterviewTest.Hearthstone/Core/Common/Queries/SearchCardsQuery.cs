@@ -29,8 +29,9 @@ namespace Storm.InterviewTest.Hearthstone.Core.Common.Queries
 
         protected override IEnumerable<ICard> ExecuteLinq(IQueryable<ICard> queryOver)
         {
-            return queryOver.Where(x => x.Name.Contains(_q) || x.Type.ToString() == _q || x.PlayerClass == Capitalize(_q));
-
+            //Adding an extra check to not return cards which type is 'Hero' would block hero cards of being displayed on the card browser
+            //Since these heroes can be search through another method on CardSearchService.getHeroes() we don't lose the ability to get them
+            return queryOver.Where(x => (x.Name.Contains(_q) || x.Type.ToString() == _q || x.PlayerClass == Capitalize(_q)) && x.Type.ToString() != "Hero");
         }
     }
 }
