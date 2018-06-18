@@ -84,6 +84,7 @@
     <Compile Include="Mapping\WhenMappingSpellCard.cs" />
     <Compile Include="Parsing\WhenParsingHearthstoneCardArray.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\WhenSearchingHearthstoneClassCardsWithSpecificLowerCaseTerms.cs" />
     <Compile Include="Specification\ContextSpecification.cs" />
     <Compile Include="Specification\MethodThatThrows.cs" />
     <Compile Include="Specification\SpecificationExtensions.cs" />
