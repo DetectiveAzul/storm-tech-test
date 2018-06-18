@@ -21,7 +21,7 @@ namespace Storm.InterviewTest.Hearthstone.Tests.Queries
                 CreateHeroCardWithId("99", hero =>
                 {
                     hero.Name = "a random hero";
-                    hero.PlayerClass = "Shaman";
+                    hero.PlayerClass = "Paladin";
 
                 })
             };
@@ -29,7 +29,7 @@ namespace Storm.InterviewTest.Hearthstone.Tests.Queries
 
         protected override void Context()
         {
-            query = "Shaman";
+            query = "Paladin";
         }
 
         protected override void Because()
@@ -37,6 +37,11 @@ namespace Storm.InterviewTest.Hearthstone.Tests.Queries
             _result = _hearthstoneCardCache.Query(new SearchCardsQuery(query));
         }
 
+        //Explanation of the test: The cards already on the CardCache are not shaman card neither are
+        //heroes cards So, on a normal situation, our Query asking for a Paladin card should at least
+        //return the card created on this test. But, since the method for getting the cards using the 
+        //searchbar (called through SearchCardsQuery) has been refactored to block returning heroes on this
+        //screen, and our card is a hero, the result we expect is 0. 
         [Test]
         public void ShouldReturnExpectedSearchResults()
         {
