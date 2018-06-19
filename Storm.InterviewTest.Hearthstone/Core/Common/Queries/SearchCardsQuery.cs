@@ -13,7 +13,7 @@ namespace Storm.InterviewTest.Hearthstone.Core.Common.Queries
         //Added a new variable to handle the hero filter from Cards browser view
         private readonly string _hero;
 
-		public SearchCardsQuery(string q, string hero)
+		public SearchCardsQuery(string q, string hero = null)
 		{
 			_q = q ?? string.Empty;
             //It will add the hero filter to our query
