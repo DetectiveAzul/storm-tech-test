@@ -1,6 +1,33 @@
 ﻿@model Storm.InterviewTest.Hearthstone.Core.Features.Cards.Models.CardModel
-<div class="form-group">
+    <div class="form-group">
+
+    <!-- style -->
+    <style type="text/css" scoped>
+        .Card {
+            font-weight: bold;
+        }
+        .Free {
+            color: silver;
+        }
+        .Common {
+            color: slategray;
+        }
+        .Rare {
+            color: blue;
+        }
+        .Epic {
+            color: blueviolet;
+        }
+        .Legendary {
+            color: coral;
+        }
+    </style>
+
+    <!-- label and text -->
     <label class="form-control-static">@Html.DisplayNameFor(model => model.Rarity)</label>
-    <input type="text" readonly="readonly" class="form-control" value="@Html.DisplayFor(model => model.Rarity)" />
-</div>
+    <abbr title="@Model.Rarity Card"
+          class="@Model.Rarity Card"
+          >@Html.DisplayFor(model => model.Rarity)</abbr>
+    </div>
+
 
