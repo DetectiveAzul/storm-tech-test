@@ -13,6 +13,10 @@ namespace Storm.InterviewTest.Hearthstone.Core.Common.Queries
         //Added a new variable to handle the hero filter from Cards browser view
         private readonly string _hero;
 
+        //The default value is added to fix compatibility with previous results, and to be sure that if nothing
+        //is introduced it will be a null value, converted to a String.empty after that to follow convention
+        //and consistency with the rest of the previous code (from another developer).
+
 		public SearchCardsQuery(string q, string hero = null)
 		{
 			_q = q ?? string.Empty;
