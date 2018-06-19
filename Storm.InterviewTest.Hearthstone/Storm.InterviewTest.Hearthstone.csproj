@@ -126,6 +126,7 @@
     <Compile Include="Core\Common\Queries\Base\SingleCardLinqQueryObject.cs" />
     <Compile Include="Core\Common\Queries\FindHeroCardQuery.cs" />
     <Compile Include="Core\Common\Queries\FindPlayableHeroCardsQuery.cs" />
+    <Compile Include="Core\Features\Cards\Models\RarityModel.cs" />
     <Compile Include="Core\Features\Cards\Models\ViewDataModel.cs" />
     <Compile Include="Core\Features\Cards\Models\HeroModel.cs" />
     <Compile Include="Core\Features\Cards\Models\MinionModel.cs" />
@@ -217,6 +218,7 @@
     <Content Include="Views\Shared\DisplayTemplates\HeroModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\WeaponModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SpellModel.cshtml" />
+    <Content Include="Views\Shared\_Rarity.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
