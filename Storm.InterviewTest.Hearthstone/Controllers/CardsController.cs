@@ -9,10 +9,11 @@ namespace Storm.InterviewTest.Hearthstone.Controllers
 {
     public class CardsController : Controller
     {
-		public ActionResult Index(string q = null)
+		public ActionResult Index(string q = null, string hero = null)
 		{
 			var searchService = new CardSearchService(MvcApplication.CardCache);
-			var cards = searchService.Search(q);
+
+            var cards = searchService.Search(q, hero);
 
 			return View(cards);
 		}
