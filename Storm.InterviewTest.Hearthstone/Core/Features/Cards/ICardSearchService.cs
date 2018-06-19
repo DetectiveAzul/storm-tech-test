@@ -7,7 +7,8 @@ namespace Storm.InterviewTest.Hearthstone.Core.Features.Cards
 	public interface ICardSearchService
 	{
 		CardModel FindById(string id);
-		IEnumerable<CardModel> Search(string searchTerm);
+        //Interface need to be modified to accept the new filter
+		IEnumerable<CardModel> Search(string searchTerm, string hero);
 		IEnumerable<CardModel> GetHeroes();
 	}
 }

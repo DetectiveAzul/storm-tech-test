@@ -21,9 +21,10 @@ namespace Storm.InterviewTest.Hearthstone.Core.Features.Cards.Services
 			return Mapper.Map<ICard, CardModel>(card);
 		}
 
-		public IEnumerable<CardModel> Search(string searchTerm)
+        //Need to be modified to accept the new filter
+		public IEnumerable<CardModel> Search(string searchTerm, string hero)
 		{
-			var cards = _cardCache.Query(new SearchCardsQuery(searchTerm));
+			var cards = _cardCache.Query(new SearchCardsQuery(searchTerm, hero));
 			return Mapper.Map<IEnumerable<ICard>, IEnumerable<CardModel>>(cards);
 		}
 

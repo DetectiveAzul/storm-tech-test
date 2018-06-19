@@ -22,6 +22,8 @@
     <IISExpressUseClassicPipelineMode />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -124,6 +126,7 @@
     <Compile Include="Core\Common\Queries\Base\SingleCardLinqQueryObject.cs" />
     <Compile Include="Core\Common\Queries\FindHeroCardQuery.cs" />
     <Compile Include="Core\Common\Queries\FindPlayableHeroCardsQuery.cs" />
+    <Compile Include="Core\Features\Cards\Models\ViewDataModel.cs" />
     <Compile Include="Core\Features\Cards\Models\HeroModel.cs" />
     <Compile Include="Core\Features\Cards\Models\MinionModel.cs" />
     <Compile Include="Core\Features\Cards\Models\SpellModel.cs" />

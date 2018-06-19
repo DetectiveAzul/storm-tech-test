@@ -1,10 +1,11 @@
-﻿@model IEnumerable<Storm.InterviewTest.Hearthstone.Core.Features.Cards.Models.CardModel>
+﻿@model Storm.InterviewTest.Hearthstone.Core.Features.Cards.Models.ViewDataModel
+<!-- I modified the object we receive from the controller -->
 @{
     ViewBag.Title = "Home Page";
 }
 
 <div class="page-header">
-    <h2>Cards (Total: @Model.Count())</h2>
+    <h2>Cards (Total: @Model.CardsData.Count())</h2>
 </div>
 
 <div class="row">
@@ -12,13 +13,15 @@
         <div class="row" style="margin-bottom: 10px">
             <div class="col-md-12">
                 <form class="form-inline" method="GET">
-                    <!-- Hard coded version of Dropdown menu-->
-                    <select id="hero">
+                    <!-- Iterate over the heroes card to get the name as value and textcontent-->
+                    <select name="hero"id="hero">
                         <option default value="">All Classes</option>
-                        <option value="Mage">Mage</option>
-                        <option value="Shaman">Shaman</option>
+                        @foreach (var heroe in Model.HeroesData)
+                        {
+                        <option value="@heroe.PlayerClassText">@heroe.PlayerClassText</option>
+                        };
                     </select>
-                    <!-- End of Hard coded version of Dropdown menu -->
+                    <!-- End of creation of dropdown menu -->
                     <input class="form-control" type="search" name="q" id="q" value="" placeholder="search for cards..." />
                     <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>    
                 </form>
@@ -27,7 +30,7 @@
         <div class="row">
             <div class="col-md-12">
                 <ul class="list-inline">
-                    @foreach (var card in Model)
+                    @foreach (var card in Model.CardsData)
                     {
                         <li class="list-group-item">
                             @{ Html.RenderPartial("_card", card); }
