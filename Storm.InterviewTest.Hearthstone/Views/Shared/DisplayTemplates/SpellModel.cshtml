@@ -20,13 +20,13 @@
                     <input type="text" readonly="readonly" class="form-control" value="@Html.DisplayFor(model => model.Type)" />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-static">@Html.DisplayNameFor(model => model.Rarity)</label>
-                    <input type="text" readonly="readonly" class="form-control" value="@Html.DisplayFor(model => model.Rarity)" />
-                </div>                            
-                <div class="form-group">
                     <label class="form-control-static">@Html.DisplayNameFor(model => model.Faction)</label>
                     <input type="text" readonly="readonly" class="form-control" value="@Html.DisplayFor(model => model.Faction)" />
                 </div>
+
+                <!-- Calling the partial display template-->
+                @{Html.RenderPartial("_Rarity", Model); }
+
             </form>
         </div>
     </div>
