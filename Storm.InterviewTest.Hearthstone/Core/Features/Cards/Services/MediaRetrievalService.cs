@@ -33,10 +33,6 @@ namespace Storm.InterviewTest.Hearthstone.Core.Features.Cards.Services
             //I pass the responsability of getting this to the controller, that works using HTTP contexts
             var localFile = Path.Combine(localBaseDirectory, cardFileName);
 
-            if (!System.IO.File.Exists(localFile))
-            {
-                DownloadFromSource(id, localFile);
-            }
 
             return localFile;
         }
@@ -53,10 +49,13 @@ namespace Storm.InterviewTest.Hearthstone.Core.Features.Cards.Services
         }
 
         //Extracted directly from the MediaController
-        private void DownloadFromSource(string cardId, string localFile)
+        public void DownloadFromSource(string cardId, string localFile)
         {
+            if (!System.IO.File.Exists(localFile))
+            {
             var client = new WebClient();
             client.DownloadFile(string.Format(this.mediaSourceUrl, cardId), localFile);
+            }
         }
 
 
