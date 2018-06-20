@@ -43,7 +43,7 @@ namespace Storm.InterviewTest.Hearthstone.Core.Features.Cards.Services
         //any parameter. 
         private string createDirectory()
         {
-            //HTTPContext.Current.Server.MapPath substitutes Server.MapPat because it cannot be used
+            //HTTPContext.Current.Server.MapPath substitutes Server.MapPath because it cannot be used
             //on a class. 
             var localBaseDirectory = HttpContext.Current.Server.MapPath(this.mediaPath);
             Directory.CreateDirectory(localBaseDirectory);
