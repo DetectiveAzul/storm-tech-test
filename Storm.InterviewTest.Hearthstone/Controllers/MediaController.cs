@@ -13,12 +13,15 @@ namespace Storm.InterviewTest.Hearthstone.Controllers
     public class MediaController : Controller
     {
 	    private const string mediaSourceUrl = "http://wow.zamimg.com/images/hearthstone/cards/enus/medium/{0}.png";
+        private const string mediaPath = "~/App_Data/media/";
+        private const string namingFormat = "{0}.png";
 
         // GET: Media
         public ActionResult Card(string id)
         {
-            var mediaService = new MediaRetrievalService(mediaSourceUrl, "~/App_Data/media/");
-            var localFile = mediaService.getFile("{0}.png", id);
+            var mediaService = new MediaRetrievalService(mediaSourceUrl, mediaPath);
+            var localBaseDirectory = mediaService.createDirectory();
+            var localFile = mediaService.getFile(namingFormat, id, localBaseDirectory);
             return File(localFile, "image/png");
             
 		}

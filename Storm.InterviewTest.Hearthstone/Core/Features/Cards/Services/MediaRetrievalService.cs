@@ -25,10 +25,12 @@ namespace Storm.InterviewTest.Hearthstone.Core.Features.Cards.Services
         //Then it call helper method createDirectory. This create the localDirectory url string.
         //With this string, we combine it with the created Filename and, if it not exists, we will
         //downloaded it from the source. Then return the localFile full url to the Controller. 
-        public string getFile(string namingFormat, string id)
+        public string getFile(string namingFormat, string id, string localBaseDirectory)
         {
             var cardFileName = string.Format(namingFormat, id);
-            var localBaseDirectory = createDirectory();
+            //Originally I had the call to createDirectory() here, but it is using a HttpContext, that
+            //only works when logged in. Unit tests were not available to test the feature like this, so
+            //I pass the responsability of getting this to the controller, that works using HTTP contexts
             var localFile = Path.Combine(localBaseDirectory, cardFileName);
 
             if (!System.IO.File.Exists(localFile))
@@ -41,7 +43,7 @@ namespace Storm.InterviewTest.Hearthstone.Core.Features.Cards.Services
 
         //Since we add the path as a class variable (to increase reusability), we don't need to pass
         //any parameter. 
-        private string createDirectory()
+        public string createDirectory()
         {
             //HTTPContext.Current.Server.MapPath substitutes Server.MapPath because it cannot be used
             //on a class. 
