@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
+using Storm.InterviewTest.Hearthstone.Core.Features.Cards.Services;
 
 namespace Storm.InterviewTest.Hearthstone.Controllers
 {
@@ -16,21 +17,11 @@ namespace Storm.InterviewTest.Hearthstone.Controllers
         // GET: Media
         public ActionResult Card(string id)
         {
-	        var cardFilename = string.Format("{0}.png", id);
-	        var localBaseDirectory = Server.MapPath("~/App_Data/media/");
-	        Directory.CreateDirectory(localBaseDirectory);
-	        var localFile = Path.Combine(localBaseDirectory, cardFilename);
-	        if (!System.IO.File.Exists(localFile))
-	        {
-		        DownloadFromSource(id, localFile);
-	        }
-
-			return File(localFile, "image/png");
+            var mediaService = new MediaRetrievalService(mediaSourceUrl, "~/App_Data/media/");
+            var localFile = mediaService.getFile("{0}.png", id);
+            return File(localFile, "image/png");
+            
 		}
 
-	    private void DownloadFromSource(string cardId, string localFile) {
-		    var client = new WebClient();
-			client.DownloadFile(string.Format(mediaSourceUrl, cardId), localFile);
-	    }
-    }
+    } 
 }
