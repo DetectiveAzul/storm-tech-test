@@ -87,6 +87,7 @@
     <Compile Include="Queries\WhenSearchingHearthstoneCardsUsingDoubleFilter.cs" />
     <Compile Include="Queries\WhenFindingAllHearthstoneCardsOnBrowseScreen.cs" />
     <Compile Include="Queries\WhenSearchingHearthstoneClassCardsWithSpecificLowerCaseTerms.cs" />
+    <Compile Include="Services\WhenRetrievingFileAddressesForMedia.cs" />
     <Compile Include="Specification\ContextSpecification.cs" />
     <Compile Include="Specification\MethodThatThrows.cs" />
     <Compile Include="Specification\SpecificationExtensions.cs" />

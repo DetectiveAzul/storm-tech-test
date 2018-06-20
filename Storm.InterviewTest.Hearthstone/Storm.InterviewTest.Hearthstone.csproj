@@ -158,6 +158,7 @@
     <Compile Include="Core\Features\Cards\Domain\SpellCard.cs" />
     <Compile Include="Core\Features\Cards\Domain\WeaponCard.cs" />
     <Compile Include="Core\Common\Queries\Base\CardListQueryObject.cs" />
+    <Compile Include="Core\Features\Cards\Services\MediaRetrievalService.cs" />
     <Compile Include="Core\Features\Cards\Services\HearthstoneCardCache.cs" />
     <Compile Include="Core\Features\Cards\HearthstoneCardsTypeConverter.cs" />
     <Compile Include="Core\Features\Cards\IHearthstoneCardCache.cs" />
