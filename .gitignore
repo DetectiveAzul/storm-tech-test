@@ -184,3 +184,7 @@ FakesAssemblies/
 
 Storm.InterviewTest.Hearthstone/App_Data/*
 !Storm.InterviewTest.Hearthstone/App_Data/cards.json
+*.lock
+.vs/Storm.InterviewTest.Hearthstone/v15/Server/sqlite3/storage.ide
+.vs/Storm.InterviewTest.Hearthstone/v15/Server/sqlite3/storage.ide-shm
+.vs/Storm.InterviewTest.Hearthstone/v15/Server/sqlite3/storage.ide-wal
